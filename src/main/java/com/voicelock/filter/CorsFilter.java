@@ -15,7 +15,6 @@ import org.springframework.web.filter.OncePerRequestFilter;
 
 public class CorsFilter implements Filter{
 
-    @Override
     public void init(FilterConfig filterConfig) throws ServletException {}
 
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain chain) 
@@ -34,8 +33,7 @@ public class CorsFilter implements Filter{
        chain.doFilter(request, servletResponse);
    }
 
-    @Override
-   public void destroy() {}
+    public void destroy() {}
 
 
    }

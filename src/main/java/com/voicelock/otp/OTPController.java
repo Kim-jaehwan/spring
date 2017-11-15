@@ -77,7 +77,7 @@ public class OTPController {
 	
 	
 	@RequestMapping(value="createKey.do")
-	public ModelAndView createKey(HttpSession session) {
+	public ModelAndView createKey(final HttpSession session) {
 		ModelAndView mv = new ModelAndView();
 		int controllNum = 1;
 		session.setAttribute("controllNum", controllNum);
@@ -158,7 +158,7 @@ public class OTPController {
 	}
 	
 	@RequestMapping("confirmKey.do")
-	public ModelAndView confirmKey(HttpSession session) {
+	public ModelAndView confirmKey(final HttpSession session) {
 		ModelAndView mv = new ModelAndView();
 		sendMsg(session);
 		String confirmOTP = (String) session.getAttribute("inMsg");
@@ -210,7 +210,7 @@ public class OTPController {
 	//@RequestMapping("serverStart.do")
 	public void sendMsg(HttpSession session){
 		ServerSocket serverSocket = null;
-		int controll = (int)session.getAttribute("controllNum");
+		int controll = Integer.parseInt((String)session.getAttribute("controllNum"));
 
 		try {
 			//서버소켓생성
